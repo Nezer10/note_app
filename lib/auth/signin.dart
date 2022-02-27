@@ -29,6 +29,7 @@ class _SignInState extends State<SignIn> {
             dismissOnBackKeyPress: false,
             dismissOnTouchOutside: false,
             btnOkOnPress: () {
+              Navigator.popUntil(context, (route) => route.isFirst);
               Navigator.of(context).pushReplacementNamed('home');
             }).show();
       } on FirebaseAuthException catch (e) {
@@ -75,7 +76,7 @@ class _SignInState extends State<SignIn> {
                 children: [
                   TextFormField(
                     onSaved: (newValue) {
-                      _email = newValue!.trim();
+                      _email = newValue;
                     },
                     validator: (value) {
                       if (value!.contains('@') == false ||

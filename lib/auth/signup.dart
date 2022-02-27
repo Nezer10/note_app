@@ -109,7 +109,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                   TextFormField(
                     onSaved: (newValue) {
-                      _email = newValue!.trim();
+                      _email = newValue;
                     },
                     validator: (value) {
                       if (value!.contains('@') == false ||

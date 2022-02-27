@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:note_app/crud/editnote.dart';
@@ -46,13 +48,13 @@ class _HomeState extends State<Home> {
               }
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Center(child: CircularProgressIndicator());
-              } else if (snapshot.hasData == false) {
+              }
+              if (!snapshot.hasData) {
                 return const Center(
-                  child: Text(
-                    'There isn\'t a note to show yet',
-                    style: TextStyle(fontSize: 25),
-                  ),
-                );
+                    child: Text(
+                  'There isn\'t a note to show yet',
+                  style: TextStyle(fontSize: 25),
+                ));
               }
               return ListView.builder(
                   itemCount: snapshot.data.docs.length,
