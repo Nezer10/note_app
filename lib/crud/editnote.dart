@@ -97,6 +97,8 @@ class _EditNoteState extends State<EditNote> {
                   TextFormField(
                     onSaved: (newValue) => _desc = newValue,
                     initialValue: widget.desc,
+                    maxLines: double.maxFinite.ceil(),
+                    minLines: 1,
                     decoration: const InputDecoration(
                         prefixIcon: Icon(Icons.note),
                         labelText: 'Description',

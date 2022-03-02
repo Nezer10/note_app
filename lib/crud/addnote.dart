@@ -14,6 +14,7 @@ class AddNote extends StatefulWidget {
 }
 
 class _AddNoteState extends State<AddNote> {
+  TextEditingController txt = TextEditingController();
   XFile? file;
   ImagePicker pick = ImagePicker();
   String? _title, _desc, _url;
@@ -46,6 +47,7 @@ class _AddNoteState extends State<AddNote> {
                     maxLength: 30,
                   ),
                   TextFormField(
+                    controller: txt,
                     onSaved: (newValue) {
                       _desc = newValue;
                     },
@@ -54,7 +56,9 @@ class _AddNoteState extends State<AddNote> {
                         labelText: 'Description',
                         border: OutlineInputBorder(
                             borderSide: BorderSide(width: 5))),
-                    maxLength: 200,
+                    keyboardType: TextInputType.multiline,
+                    maxLines: double.maxFinite.ceil(),
+                    minLines: 1,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
