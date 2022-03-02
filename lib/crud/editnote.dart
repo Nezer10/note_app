@@ -104,7 +104,6 @@ class _EditNoteState extends State<EditNote> {
                         labelText: 'Description',
                         border: OutlineInputBorder(
                             borderSide: BorderSide(width: 5))),
-                    maxLength: 200,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
